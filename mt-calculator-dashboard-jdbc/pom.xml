@@ -67,6 +67,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>mt-calculator-dashboard</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

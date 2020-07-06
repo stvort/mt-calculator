@@ -1,0 +1,1 @@
+java -jar mt-calculator-dashboard-jdbc/target/mt-calculator-dashboard.jar
