@@ -1,0 +1,33 @@
+CREATE TABLE [Users].[Main](
+	[Id] [bigint] IDENTITY(1,1) NOT NULL,
+	[Login] [nvarchar](100) NULL,
+	[Password] [nvarchar](20) NULL,
+	[BirthDay] [date] NULL,
+	[NickName] [nvarchar](25) NULL
+)
+
+CREATE TABLE [Calculate].[UsersScore](
+	[Id] [bigint] IDENTITY(1,1) NOT NULL,
+	[UserId] [bigint] NOT NULL,
+	[Time] [bigint] NOT NULL,
+	[Session] [uniqueidentifier] NOT NULL,
+	[Score] [bigint] NOT NULL,
+	[ResultDateStamp] [datetime] NULL
+)
+
+
+CREATE TABLE [Calculate].[UsersResult](
+	[Id] [bigint] IDENTITY(1,1) NOT NULL,
+	[UserId] [bigint] NULL,
+	[EquationId] [bigint] NULL,
+	[Success] [bit] NULL,
+	[Session] [uniqueidentifier] NULL,
+	[ResultDateStamp] [datetime2](7) NULL
+)
+
+CREATE TABLE [Calculate].[Equations](
+	[Id] [bigint] IDENTITY(1,1) NOT NULL,
+	[FirstNumber] [bigint] NOT NULL,
+	[SecondNumber] [bigint] NOT NULL,
+	[Type] [nvarchar](10) NOT NULL
+)
