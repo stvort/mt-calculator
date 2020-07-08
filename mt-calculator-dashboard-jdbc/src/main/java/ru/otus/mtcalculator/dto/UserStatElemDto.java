@@ -16,19 +16,19 @@ public class UserStatElemDto {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date date;
 
-    @JsonSerialize(nullsUsing = NumberSerializer.class)
+    @JsonSerialize(nullsUsing = NullNumberSerializer.class)
     @JsonProperty("Длительность прохождения")
     private Integer duration;
 
-    @JsonSerialize(nullsUsing = NumberSerializer.class)
+    @JsonSerialize(nullsUsing = NullNumberSerializer.class)
     @JsonProperty("Количество правильных ответов")
     private Long rightAnswersCount;
 
-    @JsonSerialize(nullsUsing = NumberSerializer.class)
+    @JsonSerialize(nullsUsing = NullNumberSerializer.class)
     @JsonProperty("Всего вопросов")
     private Long totalQuestionCount;
 
-    @JsonSerialize(nullsUsing = NumberSerializer.class)
+    @JsonSerialize(nullsUsing = NullNumberSerializer.class)
     @JsonProperty("Счет")
     private Integer score;
 }

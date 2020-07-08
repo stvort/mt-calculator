@@ -8,8 +8,8 @@ import ru.otus.mtcalculator.config.JwtUser;
 import ru.otus.mtcalculator.dto.CommonStatElemDto;
 import ru.otus.mtcalculator.dto.UserStatElemDto;
 import ru.otus.mtcalculator.resopsitories.UsersScoreRepository;
+import ru.otus.mtcalculator.resopsitories.UsersScoreRepositoryMsSqlServer;
 
-import java.util.Collections;
 import java.util.List;
 
 @RequiredArgsConstructor

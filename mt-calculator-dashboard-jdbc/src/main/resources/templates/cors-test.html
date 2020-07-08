@@ -1,0 +1,21 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>Пользователи</title>
+    <script>
+        function getCommonStat() {
+            const statDataContainer = document.getElementById('statDataContainer');
+            fetch('http://localhost:8080/api/v1/dashboard/all')
+                .then(response => response.json())
+                .then(user => statDataContainer.innerHTML = JSON.stringify(user));
+        }
+    </script>
+</head>
+
+<body>
+<h4>Получить статистику</h4>
+<button onclick="getCommonStat()">Получить</button>
+<pre id = "statDataContainer"></pre>
+
+</body>
+</html>
