@@ -5,17 +5,23 @@
     <script>
         function getCommonStat() {
             const statDataContainer = document.getElementById('statDataContainer');
-            fetch('http://localhost:8080/api/v1/dashboard/all')
-                .then(response => response.json())
-                .then(user => statDataContainer.innerHTML = JSON.stringify(user));
+            fetch('http://localhost:8080/api/v1/dashboard/all', {
+               method: 'get',
+               headers: new Headers({
+                 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTmFtZSI6ImNraW5nIiwiVXNlcklkIjoyLCJCaXJ0aERhdGUiOiIwOS4wNS4yMDA5IDA6MDA6MDAiLCJuYmYiOjE1OTQ0MTA5NzcsImV4cCI6MTU5NDQxNDU3NywiaXNzIjoiUyIsImF1ZCI6Ik15QXV0aENsaWVudCJ9.wsVw2M3JhK1_B_VPTBaCXIaDjUW1qBVQDAKq0mPLI30',
+               })
+            })
+            .then(response => response.json())
+            .then(user => statDataContainer.innerHTML = JSON.stringify(user));
         }
+
     </script>
 </head>
 
 <body>
 <h4>Получить статистику</h4>
 <button onclick="getCommonStat()">Получить</button>
-<pre id = "statDataContainer"></pre>
+<pre id="statDataContainer"></pre>
 
 </body>
 </html>
