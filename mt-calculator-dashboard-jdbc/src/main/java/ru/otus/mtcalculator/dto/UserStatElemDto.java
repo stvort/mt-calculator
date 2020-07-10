@@ -3,6 +3,7 @@ package ru.otus.mtcalculator.dto;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -16,19 +17,19 @@ public class UserStatElemDto {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date date;
 
-    @JsonSerialize(nullsUsing = NullNumberSerializer.class)
+    @JsonSerialize(using = ToStringSerializer.class, nullsUsing = NullNumberSerializer.class)
     @JsonProperty("Длительность прохождения")
     private Integer duration;
 
-    @JsonSerialize(nullsUsing = NullNumberSerializer.class)
+    @JsonSerialize(using = ToStringSerializer.class, nullsUsing = NullNumberSerializer.class)
     @JsonProperty("Количество правильных ответов")
     private Long rightAnswersCount;
 
-    @JsonSerialize(nullsUsing = NullNumberSerializer.class)
+    @JsonSerialize(using = ToStringSerializer.class, nullsUsing = NullNumberSerializer.class)
     @JsonProperty("Всего вопросов")
     private Long totalQuestionCount;
 
-    @JsonSerialize(nullsUsing = NullNumberSerializer.class)
+    @JsonSerialize(using = ToStringSerializer.class, nullsUsing = NullNumberSerializer.class)
     @JsonProperty("Счет")
     private Integer score;
 }
