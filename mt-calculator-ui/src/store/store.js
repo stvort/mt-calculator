@@ -157,7 +157,7 @@ export default new Vuex.Store({
 
             state.currentLogin = undefined;
             state.isLogging=true
-            requestToken('http://91i.ru/api/v1/token', loginInfo).then(tokenData => {
+            requestToken('https://91i.ru/api/v1/token', loginInfo).then(tokenData => {
                 state.isLogging = false
                 state.isLoggedIn = true
                 state.currentLogin = loginInfo.loginText;
