@@ -1,1 +1,1 @@
-web: java -jar mt-calculator-dashboard-jdbc/target/mt-calculator-dashboard.jar
+web: java -jar mt-calculator-backend/target/mt-calculator-backend.jar

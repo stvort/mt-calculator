@@ -12,6 +12,6 @@
 
     <modules>
         <module>mt-calculator-security</module>
-        <module>mt-calculator-dashboard-jdbc</module>
+        <module>mt-calculator-backend</module>
     </modules>
 </project>
