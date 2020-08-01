@@ -30,14 +30,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebM
         return super.authenticationManagerBean();
     }
 
-/*
-    @Override
-    public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("")
-    }
-*/
-
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http

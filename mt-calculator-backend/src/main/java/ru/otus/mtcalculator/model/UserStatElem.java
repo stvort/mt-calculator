@@ -1,4 +1,4 @@
-package ru.otus.mtcalculator.dto;
+package ru.otus.mtcalculator.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -11,7 +11,7 @@ import java.util.Date;
 
 @Data
 @AllArgsConstructor
-public class UserStatElemDto {
+public class UserStatElem {
 
     @JsonProperty("Дата")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")

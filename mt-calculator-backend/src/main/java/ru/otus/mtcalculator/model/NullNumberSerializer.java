@@ -1,4 +1,4 @@
-package ru.otus.mtcalculator.dto;
+package ru.otus.mtcalculator.model;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;

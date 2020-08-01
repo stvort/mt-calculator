@@ -1,4 +1,4 @@
-package ru.otus.mtcalculator.dto;
+package ru.otus.mtcalculator.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -8,7 +8,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class CommonStatElemDto {
+public class CommonStatElem {
     @JsonProperty("Пользователь")
     private String userName;
 

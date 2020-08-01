@@ -1,4 +1,4 @@
-package ru.otus.mtcalculator.dto;
+package ru.otus.mtcalculator.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
@@ -6,11 +6,11 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class TrainingSolutionDto {
+public class TrainingSolution {
 
     @JsonProperty(value = "session_id")
     private String sessionId;
 
     @JsonProperty(value = "equation_results")
-    private List<EquationResultDto> equationResults;
+    private List<EquationResult> equationResults;
 }

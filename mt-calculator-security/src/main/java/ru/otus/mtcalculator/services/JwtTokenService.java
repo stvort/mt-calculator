@@ -14,7 +14,10 @@ import ru.otus.mtcalculator.config.JwtConfiguration;
 import ru.otus.mtcalculator.config.JwtUser;
 
 import javax.servlet.http.HttpServletRequest;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 
 
 @RequiredArgsConstructor
@@ -36,7 +39,13 @@ public class JwtTokenService {
         DecodedJWT jwt = JWT.decode(token);
         long id = jwt.getClaim("UserId").asLong();
         String userName = jwt.getClaim("UserName").asString();
-        return new JwtUser(id, userName, new ArrayList<>());
+        String birthDateStr = jwt.getClaim("BirthDate").asString();
+        LocalDate birthDate = null;
+        if (birthDateStr != null && birthDateStr.length() >= 10) {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyy");
+            birthDate = LocalDate.parse(birthDateStr.replace(" 0:00:00", ""), formatter);
+        }
+        return new JwtUser(id, userName, birthDate, new ArrayList<>());
     }
 
     public String extractToken(HttpServletRequest req) {

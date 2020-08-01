@@ -2,8 +2,8 @@ package ru.otus.mtcalculator.resopsitories;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
-import ru.otus.mtcalculator.dto.CommonStatElemDto;
-import ru.otus.mtcalculator.dto.UserStatElemDto;
+import ru.otus.mtcalculator.model.CommonStatElem;
+import ru.otus.mtcalculator.model.UserStatElem;
 
 import java.util.List;
 
@@ -30,7 +30,7 @@ public interface UsersScoreRepositoryMsSqlServer extends UsersScoreRepository {
             "     inner join Users.Main u on s.UserId = u.Id " +
             "order by avgScore desc, lastScore desc"
     )
-    List<CommonStatElemDto> calcCommonStat();
+    List<CommonStatElem> calcCommonStat();
 
 
     @Override
@@ -40,5 +40,5 @@ public interface UsersScoreRepositoryMsSqlServer extends UsersScoreRepository {
             "from Calculate.UsersScore s left join Calculate.UsersResult r on s.session = r.session " +
             "where s.UserId = #{userId} " +
             "group by s.[ResultDateStamp], s.[Time], s.score")
-    List<UserStatElemDto> calcUsersStat(long userId);
+    List<UserStatElem> calcUsersStat(long userId);
 }

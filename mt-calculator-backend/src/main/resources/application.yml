@@ -22,3 +22,4 @@ spring:
 app:
   jwt:
     secret: js;retihubserlgbhser/holyiser/blihgser/gblhiserlg
+  session-life-time-sec: 43200
