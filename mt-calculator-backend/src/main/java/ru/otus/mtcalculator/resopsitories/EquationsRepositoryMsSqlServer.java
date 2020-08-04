@@ -12,7 +12,9 @@ public interface EquationsRepositoryMsSqlServer extends EquationsRepository {
     @Override
     @Select("select top(#{equationsCount}) Id id, FirstNumber firstNumber, SecondNumber secondNumber, Type type " +
             "from [Calculate].[Equations] " +
-            "where FirstNumber<10 and SecondNumber<10 and (Type='m' or FirstNumber%SecondNumber=0) " +
+            "where (Type='m' and FirstNumber <= 10 and SecondNumber <= 10) or \n" +
+            "      (Type='d' and FirstNumber % SecondNumber = 0 and SecondNumber <= 10 and FirstNumber / SecondNumber <= 10) " +
+            //"where FirstNumber<10 and SecondNumber<10 and (Type='m' or FirstNumber%SecondNumber=0) " +
             "order by NEWID()")
     List<Equation> findRandomEquations(int equationsCount);
 }

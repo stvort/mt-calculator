@@ -13,6 +13,9 @@ public class Training {
     @JsonProperty(value = "session_id")
     private String sessionId;
 
+    @JsonProperty(value = "background")
+    private String backgroundUrl;
+
     @JsonProperty(value = "equations")
     private List<Equation> equations;
 }

@@ -17,7 +17,7 @@ public class ScoreCalculatorImpl implements ScoreCalculator {
     public int calcScore(int totalEquations, int rightAnswers, long duration, LocalDate birthDate) {
         //((Количество правильно отвеченных вопросов / Количество заданных вопросов) * Радиус Земли * Пи) /
         // Потраченное время / (Количество дней с даты рождения до сейчас / 365)
-        final long daysBetweenBirthAndNow = ChronoUnit.DAYS.between(LocalDate.now(), birthDate);
+        final long daysBetweenBirthAndNow = ChronoUnit.DAYS.between(birthDate, LocalDate.now());
 
         return (int) Math.round(((rightAnswers / (double) totalEquations) * EARTH_RADIUS * PI) /
                 duration / (daysBetweenBirthAndNow / DAYS_IN_EAR));

@@ -8,7 +8,12 @@ export const requestToken = (url, loginInfo) => {
       },
        body: JSON.stringify(loginInfo)
     })
-    .then(response => response.json());
+    .then(response => {
+        if (!response.ok ) {
+            throw new Error(response.statusText);
+        }
+        return response.json();
+    });
 } 
 
 export const sendTrainingResults = (url, results) => {

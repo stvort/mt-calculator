@@ -2,10 +2,12 @@ package ru.otus.mtcalculator.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
 
+@NoArgsConstructor
 @AllArgsConstructor
 @Data
 @Entity

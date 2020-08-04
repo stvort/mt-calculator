@@ -37,6 +37,7 @@ export default {
   }, 
 
   created() {
+    console.log('game created')
     this.setTrainingSessionInfo()
   },
 

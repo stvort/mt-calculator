@@ -12,7 +12,6 @@
 import Menu from '@/components/Menu.vue'
 import CommonResultsTable from '@/components/CommonResultsTable.vue'
 
-import { mapGetters, mapMutations } from 'vuex'
 export default {
   name: 'common-results',
   components: {
@@ -24,30 +23,6 @@ export default {
       return {
       }
   }, 
-
-  created() {
-    this.setCommonResults()
-  },
-
-  computed: {
-    isLoading: {
-      get () {
-        return this.getIsLoading()
-      }
-    },
-
-    commonResults: {
-      get () {
-        return this.getCommonResults()
-      }
-    }
-  },
-
-  methods: {
-    ...mapGetters(['getIsLoading', 'getCommonResults']),
-    ...mapMutations(['setCommonResults']),
-
-  }
 }
 </script>
 

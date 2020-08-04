@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import ru.otus.mtcalculator.config.JwtUser;
 import ru.otus.mtcalculator.model.CommonStatElem;
 import ru.otus.mtcalculator.model.UserStatElem;
-import ru.otus.mtcalculator.resopsitories.UsersScoreRepository;
+import ru.otus.mtcalculator.resopsitories.UsersStatRepository;
 
 import java.util.List;
 
@@ -17,7 +17,7 @@ import java.util.List;
 @RestController
 public class DashboardRestController {
 
-    private final UsersScoreRepository repository;
+    private final UsersStatRepository repository;
 
 
     @GetMapping("api/v1/dashboard/self")

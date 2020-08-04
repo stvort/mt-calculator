@@ -6,7 +6,7 @@ import ru.otus.mtcalculator.model.UserStatElem;
 
 import java.util.List;
 
-public interface UsersScoreRepository {
+public interface UsersStatRepository {
     @Cacheable(value = "commonStat")
     List<CommonStatElem> calcCommonStat();
 

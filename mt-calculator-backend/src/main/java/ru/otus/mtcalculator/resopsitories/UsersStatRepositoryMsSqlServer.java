@@ -8,7 +8,7 @@ import ru.otus.mtcalculator.model.UserStatElem;
 import java.util.List;
 
 @Mapper
-public interface UsersScoreRepositoryMsSqlServer extends UsersScoreRepository {
+public interface UsersStatRepositoryMsSqlServer extends UsersStatRepository {
 
     @Override
     @Select("with MaxResultTimeCte as (" +

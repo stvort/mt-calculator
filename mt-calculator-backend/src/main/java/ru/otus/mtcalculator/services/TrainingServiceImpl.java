@@ -1,6 +1,7 @@
 package ru.otus.mtcalculator.services;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import ru.otus.mtcalculator.config.JwtUser;
 import ru.otus.mtcalculator.model.*;
@@ -17,6 +18,9 @@ import java.util.stream.Collectors;
 @Service
 public class TrainingServiceImpl implements TrainingService {
 
+    @Value("${app.random-background-url}")
+    private String randomBackgroundUrl;
+
     private final TrainingSessionsHolder sessionsHolder;
     private final EquationsRepository equationsRepository;
     private final UserResultRepository userResultRepository;
@@ -28,7 +32,7 @@ public class TrainingServiceImpl implements TrainingService {
         List<Equation> equations = equationsRepository.findRandomEquations(10);
         String sessionId = sessionsHolder.createSessionAndGetId(user, equations);
 
-        return new Training(sessionId, equations);
+        return new Training(sessionId, randomBackgroundUrl, equations);
 
     }
 

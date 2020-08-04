@@ -11,7 +11,7 @@
       <v-divider />
 
       <v-list dense>
-        <v-list-item link to = "/">
+        <v-list-item link to = "/" exact>
           <v-list-item-icon><v-icon>mdi-badge-account-horizontal</v-icon></v-list-item-icon>
           <v-list-item-content><v-list-item-title>Общие результаты</v-list-item-title></v-list-item-content>
         </v-list-item>

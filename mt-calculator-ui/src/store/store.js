@@ -6,10 +6,18 @@ import router from '../router'
 Vue.use(Vuex)
 
 const urlAuth = 'https://91i.ru/api/v1/token';
+
+/*
 const urlDashboardAll = 'https://mt-calculator-dashboard.herokuapp.com/api/v1/dashboard/all'
 const urlDashboardSelf = 'https://mt-calculator-dashboard.herokuapp.com/api/v1/dashboard/self'
 const urlTrainingStart = 'https://91i.ru/api/v1/start'
 const urlTrainingEnd = 'https://91i.ru/api/v1/end'
+*/
+
+const urlDashboardAll = 'http://localhost:8080/api/v1/dashboard/all'
+const urlDashboardSelf = 'http://localhost:8080/api/v1/dashboard/self'
+const urlTrainingStart = 'http://localhost:8080/api/v1/start'
+const urlTrainingEnd = 'http://localhost:8080/api/v1/end'
 
 export default new Vuex.Store({
     state: {
@@ -54,6 +62,7 @@ export default new Vuex.Store({
     },
     mutations: {
         setCommonResults(state) {
+            console.log('setCommonResults')
             state.isLoading = true
             requestData(urlDashboardAll).then(data => {
                 state.commonResults = data
@@ -62,6 +71,7 @@ export default new Vuex.Store({
         },
 
         setSelfResults(state) {
+            console.log('setSelfResults')
             state.isLoading = true
             requestData(urlDashboardSelf).then(data => {
                 state.selfResults = data
@@ -104,14 +114,22 @@ export default new Vuex.Store({
             if (loginInfo.loginText !== state.currentLogin){
                 state.trainingSessionInfo = undefined
             }
+            
+            //console.log("login: " + loginInfo.loginText + ", password: " + loginInfo.passwordText)
+            if (!loginInfo || !loginInfo.loginText || loginInfo.passwordText || loginInfo.loginText === '' || loginInfo.passwordText === '') {
+                return;
+            }
 
             state.currentLogin = undefined;
             state.isLogging=true
             requestToken(urlAuth, loginInfo).then(tokenData => {
+                console.log(tokenData)
                 state.isLogging = false
                 state.isLoggedIn = true
                 state.currentLogin = loginInfo.loginText;
                 localStorage.setItem('mtcalctoken', JSON.stringify(tokenData))
+            }).catch(() => {
+                state.isLogging = false
             })
         },
 
