@@ -12,12 +12,10 @@ import ru.otus.mtcalculator.model.UserBrief;
 import ru.otus.mtcalculator.model.UserResult;
 
 import java.sql.Timestamp;
-import java.util.Date;
 import java.util.Optional;
 import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Репозиторий для работы с результатами решения примеров должен ")
 @DataJpaTest

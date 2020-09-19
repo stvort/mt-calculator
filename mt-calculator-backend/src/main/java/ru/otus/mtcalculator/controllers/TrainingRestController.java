@@ -19,14 +19,12 @@ public class TrainingRestController {
     @GetMapping("/api/v1/start")
     public Training startTraining(Authentication a){
         JwtUser user = (JwtUser) a.getPrincipal();
-        System.out.println(user.getBirthDate());
         return trainingService.startTraining(user);
     }
 
 
     @PostMapping("/api/v1/end")
     public TrainingCheckResult checkSolution(@RequestBody TrainingSolution solution) {
-        System.out.println(solution);
         return trainingService.finishTraining(solution);
     }
 

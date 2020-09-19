@@ -28,10 +28,7 @@ public class DashboardRestController {
 
     @GetMapping("api/v1/dashboard/all")
     public List<CommonStatElem> getCommonStat(){
-        long t = System.currentTimeMillis();
-        List<CommonStatElem> commonStat = repository.calcCommonStat();
-        System.out.printf("Elapsed time: %d\n", System.currentTimeMillis() - t);
-        return commonStat;
+        return repository.calcCommonStat();
     }
 
 
